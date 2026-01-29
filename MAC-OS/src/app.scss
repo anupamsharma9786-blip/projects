@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,#root,body{
+    height: 100%;
+    width: 100%;
+}
+
+
+main{
+    height: 100%;
+    width: 100%;
+    background-image: url(/wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+}
