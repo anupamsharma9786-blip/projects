@@ -11,7 +11,7 @@ const App = () => {
   const [notes,setNotes] = useState([])
 
   function fetchNotes(){
-    axios.get("http://localhost:3000/notes")
+    axios.get("https://projects-op6t.onrender.com/notes")
     .then((res)=>{
       console.log(res.data)
       setNotes(res.data.note)
@@ -25,7 +25,7 @@ const App = () => {
     const title = e.target.title.value;
     const description = e.target.description.value;
 
-    await axios.post("http://localhost:3000/notes",{
+    await axios.post("https://projects-op6t.onrender.com/notes",{
       title:title,
       description:description
     })
@@ -43,7 +43,7 @@ const App = () => {
     e.target.description2.value="";
     
 
-    await axios.patch("http://localhost:3000/notes/"+id,{
+    await axios.patch("https://projects-op6t.onrender.com/notes/"+id,{
       description:description2
     })
     .then((res)=>{
@@ -56,7 +56,7 @@ const App = () => {
   }
 
   function deleteHandler(id){
-    axios.delete("http://localhost:3000/notes/"+id)
+    axios.delete("https://projects-op6t.onrender.com/notes/"+id)
     .then((res)=>{
       console.log(res.data.message);
       fetchNotes();
