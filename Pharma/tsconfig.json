@@ -13,8 +13,6 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "types": ["node"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
     "moduleResolution": "node"
   },
   "include": ["src/**/*"],
