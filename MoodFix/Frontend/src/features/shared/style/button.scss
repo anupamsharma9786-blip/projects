@@ -1,0 +1,160 @@
+// Button Styles
+button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    // Primary Button (Default)
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+
+    &:hover {
+        background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    }
+
+    &:disabled {
+        background: #6b7280;
+        color: #9ca3af;
+        cursor: not-allowed;
+        box-shadow: none;
+        transform: none;
+
+        &:hover {
+            background: #6b7280;
+            transform: none;
+        }
+    }
+
+    // Secondary Button Variant
+    &.secondary {
+        background: transparent;
+        color: #3b82f6;
+        border: 2px solid #3b82f6;
+        box-shadow: none;
+
+        &:hover {
+            background: rgba(59, 130, 246, 0.1);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        &:active {
+            background: rgba(59, 130, 246, 0.2);
+        }
+    }
+
+    // Outline Button Variant
+    &.outline {
+        background: transparent;
+        color: #dbeafe;
+        border: 1px solid #374151;
+        box-shadow: none;
+
+        &:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        &:active {
+            background: rgba(59, 130, 246, 0.1);
+        }
+    }
+
+    // Danger/Negative Button Variant
+    &.danger {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+
+        &:hover {
+            background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.6);
+        }
+
+        &:active {
+            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+        }
+    }
+
+    // Success Button Variant
+    &.success {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+
+        &:hover {
+            background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+        }
+
+        &:active {
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+        }
+    }
+
+    // Small Button Size
+    &.sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    // Large Button Size
+    &.lg {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+        border-radius: 10px;
+    }
+
+    // Full Width Button
+    &.full {
+        width: 100%;
+        display: block;
+    }
+
+    // Icon Button
+    &.icon {
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 640px) {
+    button {
+        font-size: 0.95rem;
+        padding: 0.65rem 1.25rem;
+
+        &.lg {
+            padding: 0.85rem 1.75rem;
+            font-size: 1rem;
+        }
+    }
+}

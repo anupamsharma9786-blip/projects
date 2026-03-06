@@ -1,0 +1,337 @@
+// Face Expression Detection Component Styles
+
+.face-detector-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(135deg, #161E2D 45%, #1a2436 100%, #161E2D 45%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-bottom: 280px; // Account for fixed player at bottom
+}
+
+.face-detector-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 600px;
+  width: 100%;
+  padding: 40px 32px;
+  background: rgba(31, 41, 55, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.face-detector-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+.face-detector-subtitle {
+  font-size: 14px;
+  color: #9ca3af;
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+// Video Wrapper Section
+.face-detector-video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+  border: 2px solid rgba(59, 130, 246, 0.4);
+  background: #000000;
+}
+
+.face-detector-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+
+  &:loading {
+    filter: blur(2px);
+  }
+}
+
+.face-detector-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  animation: pulseOverlay 3s ease-in-out infinite;
+}
+
+@keyframes pulseOverlay {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Expression Info Section
+.face-detector-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 20px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.face-detector-label {
+  font-size: 12px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.face-detector-expression {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin: 0;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  animation: slideInExpression 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideInExpression {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Button Styling
+.face-detector-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  font-family: inherit;
+  width: 100%;
+  max-width: 400px;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  }
+
+  &:disabled {
+    background: #6b7280;
+    color: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+
+    &:hover {
+      background: #6b7280;
+      transform: none;
+    }
+  }
+
+  // Size variants
+  &.sm {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+  }
+
+  &.lg {
+    padding: 14px 36px;
+    font-size: 1.125rem;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .face-detector-container {
+    padding: 16px;
+  }
+
+  .face-detector-content {
+    padding: 32px 24px;
+    gap: 20px;
+  }
+
+  .face-detector-title {
+    font-size: 28px;
+  }
+
+  .face-detector-subtitle {
+    font-size: 13px;
+  }
+
+  .face-detector-video-wrapper {
+    max-width: 100%;
+  }
+
+  .face-detector-expression {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .face-detector-container {
+    padding: 12px;
+    padding-bottom: 220px;
+  }
+
+  .face-detector-content {
+    padding: 24px 16px;
+    gap: 16px;
+    border-radius: 12px;
+  }
+
+  .face-detector-title {
+    font-size: 24px;
+  }
+
+  .face-detector-subtitle {
+    font-size: 12px;
+  }
+
+  .face-detector-video-wrapper {
+    border-radius: 10px;
+    border-width: 2px;
+  }
+
+  .face-detector-info {
+    padding: 16px;
+    gap: 6px;
+    border-radius: 10px;
+  }
+
+  .face-detector-expression {
+    font-size: 20px;
+  }
+
+  .face-detector-btn {
+    max-width: 100%;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+
+    svg {
+      margin-right: 6px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .face-detector-container {
+    padding: 10px;
+    padding-bottom: 200px;
+  }
+
+  .face-detector-content {
+    padding: 20px 12px;
+    gap: 14px;
+  }
+
+  .face-detector-title {
+    font-size: 20px;
+  }
+
+  .face-detector-subtitle {
+    font-size: 11px;
+  }
+
+  .face-detector-expression {
+    font-size: 18px;
+  }
+
+  .face-detector-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+// Animation for loading state
+@keyframes shimmer {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.face-detector-expression:contains("loading") {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+  .face-detector-video-overlay,
+  .face-detector-expression,
+  .face-detector-btn,
+  .face-detector-btn svg {
+    animation: none;
+    transition: none;
+  }
+}
