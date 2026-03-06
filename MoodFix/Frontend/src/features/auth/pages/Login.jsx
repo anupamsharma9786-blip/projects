@@ -10,7 +10,7 @@ const Login = () => {
   const {user} = useAuth();
   
   if(user){
-    navigate("/");
+    navigate("/dashboard");
   }
 
   const {loading,handleLogin} = useAuth()
@@ -28,7 +28,7 @@ const Login = () => {
     
     await handleLogin(userDets,password);
 
-    navigate("/");
+    navigate("/dashboard");
   }
 
   return (

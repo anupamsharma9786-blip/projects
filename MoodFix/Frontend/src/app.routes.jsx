@@ -6,11 +6,11 @@ import Home from "./features/home/pages/Home";
 
 export const AppRoute = createBrowserRouter([
     {
-        path:"/",
+        path:"/dashboard",
         element:<Protected><Home/></Protected>
     },
     {
-        path:"/login",
+        path:"/",
         element:<Login/>
     },
     {
